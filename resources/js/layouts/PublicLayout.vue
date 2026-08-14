@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PublicFloatingActions from '@/components/public/PublicFloatingActions.vue';
 import PublicFooter from '@/components/public/PublicFooter.vue';
 import PublicHeader from '@/components/public/PublicHeader.vue';
 </script>
@@ -16,5 +17,6 @@ import PublicHeader from '@/components/public/PublicHeader.vue';
         </main>
 
         <PublicFooter />
+        <PublicFloatingActions />
     </div>
 </template>

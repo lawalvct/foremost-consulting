@@ -37,40 +37,45 @@ const afterServices: NavigationItem[] = [
 ];
 
 const serviceItems: NavigationItem[] = [
-    { label: 'Audit & Assurance', href: '/#service-audit-assurance' },
+    { label: 'Audit & Assurance', href: '/services/audit-and-assurance' },
     {
         label: 'Accounting & Financial Management',
-        href: '/#service-accounting-financial-management',
+        href: '/services/accounting-and-financial-management',
     },
     {
         label: 'Tax & Regulatory Advisory',
-        href: '/#service-tax-regulatory-advisory',
+        href: '/services/tax-and-regulatory-advisory',
     },
     {
         label: 'Management & Business Advisory',
-        href: '/#service-management-business-advisory',
+        href: '/services/management-and-business-advisory',
     },
     {
         label: 'Corporate Affairs Services',
-        href: '/#service-corporate-affairs',
+        href: '/services/corporate-affairs-services',
     },
     {
         label: 'Investigation & Special Engagements',
-        href: '/#service-investigation-special-engagements',
+        href: '/services/investigation-and-special-engagements',
     },
     {
         label: 'Accounting Technology & Systems',
-        href: '/#service-accounting-technology-systems',
+        href: '/services/accounting-technology-and-systems',
     },
     {
         label: 'Training & Capacity Development',
-        href: '/#service-training-capacity-development',
+        href: '/services/training-and-capacity-development',
     },
 ];
 
 const page = usePage();
 const mobileOpen = ref(false);
 const currentPath = computed(() => page.url.split(/[?#]/, 1)[0] ?? '/');
+const servicesActive = computed(
+    () =>
+        currentPath.value === '/services' ||
+        currentPath.value.startsWith('/services/'),
+);
 
 const isActive = (href: string): boolean => {
     if (href === '/') {
@@ -119,24 +124,17 @@ const closeMobileNavigation = (): void => {
                     aria-label="Foremost Consulting Associates — home"
                 >
                     <img
-                        src="/brand/foremost-fca-mark-128.png"
-                        alt=""
-                        width="128"
-                        height="128"
-                        class="size-12 sm:hidden"
-                    />
-                    <img
                         src="/brand/foremost-logo-header.png"
                         alt="Foremost Consulting Associates"
                         width="720"
                         height="192"
-                        class="hidden h-16 w-auto sm:block"
+                        class="h-auto w-[10.75rem] sm:h-16 sm:w-auto"
                     />
                 </Link>
 
                 <nav
                     aria-label="Primary navigation"
-                    class="ml-auto hidden h-full items-center gap-0.5 xl:flex"
+                    class="relative ml-auto hidden h-full items-center gap-0.5 xl:flex"
                 >
                     <Link
                         v-for="item in beforeServices"
@@ -154,18 +152,38 @@ const closeMobileNavigation = (): void => {
                         />
                     </Link>
 
-                    <NavigationMenu :viewport="false">
+                    <NavigationMenu :viewport="false" class="static">
                         <NavigationMenuList>
-                            <NavigationMenuItem class="relative">
+                            <NavigationMenuItem class="static">
                                 <NavigationMenuTrigger
                                     class="min-h-11 bg-transparent px-3 text-[0.84rem] font-semibold text-brand-charcoal hover:bg-transparent hover:text-brand-burgundy focus:bg-brand-warm-white data-[state=open]:bg-brand-warm-white data-[state=open]:text-brand-burgundy"
+                                    :class="{
+                                        'text-brand-burgundy': servicesActive,
+                                    }"
                                 >
                                     Services
                                 </NavigationMenuTrigger>
+                                <span
+                                    v-if="servicesActive"
+                                    class="absolute inset-x-3 bottom-0 h-0.5 bg-brand-burgundy"
+                                    aria-hidden="true"
+                                />
                                 <NavigationMenuContent
-                                    class="left-1/2 w-[44rem] -translate-x-1/2 rounded-sm border-brand-border bg-white p-3 shadow-[0_18px_50px_rgba(7,56,44,0.16)]"
+                                    class="rounded-sm border-brand-border bg-white p-3 shadow-[0_18px_50px_rgba(7,56,44,0.16)] md:left-1/2 md:w-[44rem] md:-translate-x-1/2"
                                 >
-                                    <div class="grid grid-cols-2 gap-1">
+                                    <NavigationMenuLink :as-child="true">
+                                        <a
+                                            href="/services"
+                                            class="mb-2 flex min-h-11 items-center justify-between rounded-sm bg-brand-forest px-4 text-sm font-bold text-white hover:bg-brand-forest-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-burgundy"
+                                        >
+                                            View All Services
+                                            <ChevronDown
+                                                class="size-4 -rotate-90"
+                                                aria-hidden="true"
+                                            />
+                                        </a>
+                                    </NavigationMenuLink>
+                                    <div class="grid grid-cols-2 gap-2">
                                         <NavigationMenuLink
                                             v-for="item in serviceItems"
                                             :key="item.label"
@@ -173,7 +191,7 @@ const closeMobileNavigation = (): void => {
                                         >
                                             <a
                                                 :href="item.href"
-                                                class="rounded-sm px-4 py-3 text-sm font-semibold text-brand-charcoal transition-colors hover:bg-[#f3f6f4] hover:text-brand-forest focus:bg-[#f3f6f4]"
+                                                class="block min-w-0 rounded-sm px-4 py-3 text-sm leading-5 font-semibold whitespace-normal text-brand-charcoal transition-colors hover:bg-[#f3f6f4] hover:text-brand-forest focus:bg-[#f3f6f4] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-burgundy"
                                             >
                                                 {{ item.label }}
                                             </a>
@@ -275,6 +293,10 @@ const closeMobileNavigation = (): void => {
                                 >
                                     <summary
                                         class="flex min-h-12 cursor-pointer list-none items-center justify-between text-base font-semibold text-brand-charcoal [&::-webkit-details-marker]:hidden"
+                                        :class="{
+                                            'text-brand-burgundy':
+                                                servicesActive,
+                                        }"
                                     >
                                         Services
                                         <ChevronDown
@@ -283,6 +305,17 @@ const closeMobileNavigation = (): void => {
                                         />
                                     </summary>
                                     <div class="space-y-1 pb-4 pl-3">
+                                        <a
+                                            href="/services"
+                                            class="mb-2 flex min-h-11 items-center justify-between rounded-sm bg-brand-forest px-3 text-sm font-bold text-white"
+                                            @click="closeMobileNavigation"
+                                        >
+                                            View All Services
+                                            <ChevronDown
+                                                class="size-4 -rotate-90"
+                                                aria-hidden="true"
+                                            />
+                                        </a>
                                         <a
                                             v-for="item in serviceItems"
                                             :key="item.label"

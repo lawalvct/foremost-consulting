@@ -5,18 +5,18 @@ import { ArrowRight, MapPin } from '@lucide/vue';
 const currentYear = new Date().getFullYear();
 
 const serviceLinks = [
-    { label: 'Audit & Assurance', href: '/#service-audit-assurance' },
+    { label: 'Audit & Assurance', href: '/services/audit-and-assurance' },
     {
         label: 'Accounting & Financial Management',
-        href: '/#service-accounting-financial-management',
+        href: '/services/accounting-and-financial-management',
     },
     {
         label: 'Tax & Regulatory Advisory',
-        href: '/#service-tax-regulatory-advisory',
+        href: '/services/tax-and-regulatory-advisory',
     },
     {
         label: 'Management & Business Advisory',
-        href: '/#service-management-business-advisory',
+        href: '/services/management-and-business-advisory',
     },
 ];
 

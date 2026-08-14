@@ -102,12 +102,17 @@
 :root {
     --brand-forest: #0b4d3b;
     --brand-forest-dark: #07382c;
+    --brand-forest-panel: #074332;
     --brand-burgundy: #7a263a;
     --brand-gold: #c3a35a;
+    --brand-gold-light: #d7bd7e;
+    --brand-gold-text: #80652b;
     --brand-warm-white: #fafaf7;
+    --brand-warm-grey: #f6f4ef;
     --brand-charcoal: #20262b;
     --brand-muted: #66706b;
     --brand-border: #dde4df;
+    --whatsapp-green: #25d366;
     --background: hsl(0 0% 100%);
     --foreground: hsl(0 0% 3.9%);
     --card: hsl(0 0% 100%);
@@ -237,6 +242,36 @@
         text-transform: uppercase;
     }
 
+    .hero-v2-linework {
+        position: absolute;
+        top: -5rem;
+        right: -12rem;
+        width: 30rem;
+        height: 28rem;
+        opacity: 0.16;
+        background-image:
+            repeating-linear-gradient(
+                78deg,
+                transparent 0 37px,
+                rgb(195 163 90 / 24%) 37px 38px
+            ),
+            repeating-linear-gradient(
+                168deg,
+                transparent 0 51px,
+                rgb(255 255 255 / 16%) 51px 52px
+            );
+        mask-image: radial-gradient(
+            circle at 72% 26%,
+            black 0 20%,
+            transparent 78%
+        );
+        -webkit-mask-image: radial-gradient(
+            circle at 72% 26%,
+            black 0 20%,
+            transparent 78%
+        );
+    }
+
     .public-skip-link {
         position: fixed;
         top: 0.75rem;
@@ -271,6 +306,16 @@
 @media (min-width: 48rem) {
     .public-container {
         width: min(calc(100% - 3rem), 90rem);
+    }
+}
+
+@media (min-width: 64rem) {
+    .hero-v2-linework {
+        top: -7rem;
+        right: -3rem;
+        width: 34rem;
+        height: 31rem;
+        opacity: 0.21;
     }
 }
 
