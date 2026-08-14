@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\PublicSite\ContactController;
 use App\Http\Controllers\PublicSite\HomeController;
 use App\Http\Controllers\PublicSite\IndustryController;
 use App\Http\Controllers\PublicSite\ServiceController;
-use App\Http\Controllers\PublicSite\ContactController;
 use App\Http\Controllers\PublicSite\TrainingController;
 use Illuminate\Support\Facades\Route;
 

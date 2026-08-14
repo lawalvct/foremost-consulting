@@ -187,7 +187,7 @@ const submit = (): void => {
                     </p>
                     <a
                         :href="`mailto:${contactDetails.email}`"
-                        class="mt-5 inline-flex min-h-11 items-center break-all text-sm font-bold text-brand-forest hover:text-brand-burgundy"
+                        class="mt-5 inline-flex min-h-11 items-center text-sm font-bold break-all text-brand-forest hover:text-brand-burgundy"
                     >
                         {{ contactDetails.email }}
                     </a>
@@ -214,8 +214,8 @@ const submit = (): void => {
                 </h2>
                 <p class="mt-6 text-base leading-7 text-brand-muted">
                     Provide enough context for the team to understand your
-                    request. A representative can then respond using the
-                    details you provide.
+                    request. A representative can then respond using the details
+                    you provide.
                 </p>
 
                 <div class="mt-8 border-l-4 border-brand-burgundy bg-white p-6">
@@ -269,7 +269,7 @@ const submit = (): void => {
                             type="text"
                             autocomplete="name"
                             required
-                            class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal outline-none transition focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
+                            class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal transition outline-none focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
                         />
                         <InputError
                             class="mt-2"
@@ -290,7 +290,7 @@ const submit = (): void => {
                             name="organisation"
                             type="text"
                             autocomplete="organization"
-                            class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal outline-none transition focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
+                            class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal transition outline-none focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
                         />
                         <InputError
                             class="mt-2"
@@ -313,12 +313,9 @@ const submit = (): void => {
                             inputmode="email"
                             autocomplete="email"
                             required
-                            class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal outline-none transition focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
+                            class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal transition outline-none focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
                         />
-                        <InputError
-                            class="mt-2"
-                            :message="form.errors.email"
-                        />
+                        <InputError class="mt-2" :message="form.errors.email" />
                     </div>
 
                     <div>
@@ -335,12 +332,9 @@ const submit = (): void => {
                             type="tel"
                             inputmode="tel"
                             autocomplete="tel"
-                            class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal outline-none transition focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
+                            class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal transition outline-none focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
                         />
-                        <InputError
-                            class="mt-2"
-                            :message="form.errors.phone"
-                        />
+                        <InputError class="mt-2" :message="form.errors.phone" />
                     </div>
                 </div>
 
@@ -357,12 +351,9 @@ const submit = (): void => {
                         name="subject"
                         type="text"
                         required
-                        class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal outline-none transition focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
+                        class="mt-2 min-h-12 w-full rounded-sm border border-brand-border bg-white px-4 text-base text-brand-charcoal transition outline-none focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
                     />
-                    <InputError
-                        class="mt-2"
-                        :message="form.errors.subject"
-                    />
+                    <InputError class="mt-2" :message="form.errors.subject" />
                 </div>
 
                 <div class="mt-6">
@@ -378,7 +369,7 @@ const submit = (): void => {
                         name="message"
                         rows="7"
                         required
-                        class="mt-2 w-full resize-y rounded-sm border border-brand-border bg-white px-4 py-3 text-base leading-7 text-brand-charcoal outline-none transition focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
+                        class="mt-2 w-full resize-y rounded-sm border border-brand-border bg-white px-4 py-3 text-base leading-7 text-brand-charcoal transition outline-none focus:border-brand-forest focus:ring-2 focus:ring-brand-forest/20"
                     />
                     <div class="mt-1 flex items-start justify-between gap-4">
                         <InputError :message="form.errors.message" />
@@ -427,7 +418,9 @@ const submit = (): void => {
                     class="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-sm bg-brand-forest px-7 text-sm font-bold text-white transition-colors hover:bg-brand-forest-dark disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
                     <Send class="size-4" aria-hidden="true" />
-                    {{ form.processing ? 'Sending Message...' : 'Send Message' }}
+                    {{
+                        form.processing ? 'Sending Message...' : 'Send Message'
+                    }}
                 </button>
 
                 <p class="mt-5 flex gap-2 text-xs leading-5 text-brand-muted">

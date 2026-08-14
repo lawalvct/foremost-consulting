@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { ArrowRight, MapPin } from '@lucide/vue';
+import { ArrowRight, Mail, MapPin, Phone } from '@lucide/vue';
+import { contactDetails } from '@/content/contactDetails';
 
 const currentYear = new Date().getFullYear();
 
@@ -115,15 +116,43 @@ const companyLinks = [
                     <h2
                         class="text-sm font-bold tracking-[0.12em] text-white uppercase"
                     >
-                        Location
+                        Contact
                     </h2>
                     <p class="mt-5 flex gap-3 text-sm leading-6 text-white/72">
                         <MapPin
                             class="mt-0.5 size-4 shrink-0 text-brand-gold"
                             aria-hidden="true"
                         />
-                        <span>Abeokuta, Ogun State, Nigeria</span>
+                        <span>
+                            <span
+                                v-for="line in contactDetails.addressLines"
+                                :key="line"
+                                class="block"
+                            >
+                                {{ line }}
+                            </span>
+                        </span>
                     </p>
+                    <a
+                        :href="contactDetails.phones[0].href"
+                        class="mt-4 flex min-h-8 items-center gap-3 text-sm text-white/72 hover:text-brand-gold"
+                    >
+                        <Phone
+                            class="size-4 shrink-0 text-brand-gold"
+                            aria-hidden="true"
+                        />
+                        {{ contactDetails.phones[0].display }}
+                    </a>
+                    <a
+                        :href="`mailto:${contactDetails.email}`"
+                        class="mt-2 flex min-h-8 items-center gap-3 text-sm break-all text-white/72 hover:text-brand-gold"
+                    >
+                        <Mail
+                            class="size-4 shrink-0 text-brand-gold"
+                            aria-hidden="true"
+                        />
+                        {{ contactDetails.email }}
+                    </a>
                 </div>
             </div>
 
