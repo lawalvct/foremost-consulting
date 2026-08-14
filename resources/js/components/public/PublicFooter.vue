@@ -24,7 +24,8 @@ const companyLinks = [
     { label: 'About', href: '/about' },
     { label: 'Industries', href: '/industries' },
     { label: 'Training', href: '/training' },
-    { label: 'Insights', href: '/insights' },
+    // Insights remains unpublished until reviewed content is ready.
+    // { label: 'Insights', href: '/insights' },
     { label: 'Contact', href: '/contact' },
 ];
 </script>

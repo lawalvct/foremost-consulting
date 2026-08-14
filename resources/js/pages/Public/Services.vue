@@ -27,24 +27,43 @@ import { engagementApproach } from '@/content/serviceDetails';
                 class="absolute inset-40 rounded-full border border-white/12"
             />
         </div>
-        <div class="public-container relative py-16 sm:py-20 lg:py-24">
-            <p
-                class="text-xs font-bold tracking-[0.18em] text-[var(--brand-gold-light)] uppercase"
-            >
-                Our Services
-            </p>
-            <h1
-                class="mt-5 max-w-5xl font-serif text-[clamp(2.8rem,5.4vw,5.5rem)] leading-[0.98] font-medium tracking-[-0.035em]"
-            >
-                Integrated expertise for stronger organisations.
-            </h1>
-            <p
-                class="mt-7 max-w-3xl text-base leading-7 text-white/76 sm:text-lg sm:leading-8"
-            >
-                Connected audit, accounting, tax, advisory, corporate,
-                investigation, systems and training capabilities shaped around
-                real organisational needs.
-            </p>
+        <div
+            class="public-container relative grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1fr_0.86fr] lg:gap-16 lg:py-24"
+        >
+            <div class="max-w-5xl">
+                <p
+                    class="text-xs font-bold tracking-[0.18em] text-[var(--brand-gold-light)] uppercase"
+                >
+                    Our Services
+                </p>
+                <h1
+                    class="mt-5 font-serif text-[clamp(2.8rem,4.7vw,4.9rem)] leading-[0.98] font-medium tracking-[-0.035em]"
+                >
+                    Integrated expertise for stronger organisations.
+                </h1>
+                <p
+                    class="mt-7 max-w-3xl text-base leading-7 text-white/76 sm:text-lg sm:leading-8"
+                >
+                    Connected audit, accounting, tax, advisory, corporate,
+                    investigation, systems and training capabilities shaped
+                    around real organisational needs.
+                </p>
+            </div>
+
+            <figure class="relative mx-auto w-full max-w-[43rem] pb-5 pl-5">
+                <div
+                    class="absolute top-5 right-5 bottom-0 left-0 border border-brand-gold/75"
+                    aria-hidden="true"
+                />
+                <img
+                    src="/brand/foremost-services-overview.png"
+                    alt=""
+                    width="1536"
+                    height="1024"
+                    fetchpriority="high"
+                    class="relative aspect-[3/2] w-full object-cover shadow-[0_24px_60px_rgba(0,0,0,0.24)]"
+                />
+            </figure>
         </div>
     </section>
 
