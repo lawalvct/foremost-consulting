@@ -226,10 +226,16 @@ const submit = (): void => {
                     <p
                         class="mt-4 text-sm leading-6 font-semibold text-brand-charcoal"
                     >
-                        For a detailed service discussion, the consultation
-                        request workflow will collect additional information in
-                        the next phase.
+                        For a detailed service discussion, use the consultation
+                        request form to provide your service, industry and
+                        contact preferences.
                     </p>
+                    <a
+                        href="/request-consultation"
+                        class="mt-5 inline-flex min-h-11 items-center text-sm font-bold text-brand-forest hover:text-brand-burgundy"
+                    >
+                        Request a Consultation
+                    </a>
                 </div>
             </div>
 

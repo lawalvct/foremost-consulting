@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PublicSite\ConsultationController;
 use App\Http\Controllers\PublicSite\ContactController;
 use App\Http\Controllers\PublicSite\HomeController;
 use App\Http\Controllers\PublicSite\IndustryController;
@@ -20,6 +21,11 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.index
 Route::post('/contact', [ContactController::class, 'store'])
     ->middleware('throttle:5,1')
     ->name('contact.store');
+Route::get('/request-consultation', [ConsultationController::class, 'index'])
+    ->name('consultation.index');
+Route::post('/request-consultation', [ConsultationController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('consultation.store');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'Dashboard')->name('dashboard');
