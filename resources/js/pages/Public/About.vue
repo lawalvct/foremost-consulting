@@ -21,6 +21,50 @@ const values = [
             'Straightforward communication and respect for the confidence of clients.',
     },
 ] as const;
+
+const leaders = [
+    {
+        name: 'Benjamin Akanji Omonayajo',
+        role: 'Principal Partner',
+        designations: 'FCA, FCTI, MNIM',
+        specialisation:
+            'Auditing, taxation, management, accountancy and computer consultancy',
+        biography:
+            'Benjamin Akanji Omonayajo brings senior financial, operational and general-management experience to his role as Principal Partner. His work spans auditing, taxation, management, accountancy and technology-supported consultancy. With key professional designations including FCA, FCTI and MNIM, he contributes a practical perspective shaped by leadership responsibilities in finance and hospitality, as well as his continuing work in professional practice.',
+        image: {
+            src: '/brand/leadership/benjamin-omonayajo.webp',
+            width: 800,
+            height: 808,
+        },
+    },
+    {
+        name: 'Jubril Olawale Lawal',
+        role: 'Principal Partner',
+        designations: 'FCA, FCTI, FCIB',
+        specialisation:
+            'Auditing, accountancy, taxation, consultancy, receivership, oil and gas accounting, and special-purpose investigation',
+        biography:
+            'Jubril Olawale Lawal is a Principal Partner with experience across audit, banking, finance and financial control. His professional designations include FCA, FCTI and FCIB. He specialises in auditing, accountancy, taxation, consultancy, receivership, oil and gas accounting, and special-purpose investigation, bringing broad financial-sector and assurance experience to complex organisational and reporting engagements.',
+        image: {
+            src: '/brand/leadership/jubril-lawal.webp',
+            width: 718,
+            height: 814,
+        },
+    },
+    {
+        name: 'Moshood Obasanjo Sadiq',
+        role: 'Associate Partner',
+        designations: 'B.Sc, ACA, ACTI',
+        specialisation: 'Accountancy, audit and taxation',
+        biography:
+            "Moshood Obasanjo Sadiq is the Associate Partner of Foremost Consulting Associates. A chartered accountant and tax practitioner with the designations ACA and ACTI, he specialises in accountancy, audit and taxation. His professional experience includes public-sector accounting and progressive supervisory and management responsibilities within Foremost before his appointment as Associate Partner, giving him a grounded understanding of the firm's client work and operating standards.",
+        image: {
+            src: '/brand/leadership/moshood-sadiq.webp',
+            width: 800,
+            height: 888,
+        },
+    },
+] as const;
 </script>
 
 <template>
@@ -372,27 +416,79 @@ const values = [
 
     <section
         aria-labelledby="leadership-heading"
-        class="border-t border-brand-border bg-brand-warm-white py-16 sm:py-20"
+        class="border-t border-brand-border bg-brand-warm-white py-16 sm:py-20 lg:py-24"
     >
-        <div
-            class="public-container grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16"
-        >
-            <div>
-                <p class="public-eyebrow">Leadership</p>
-                <h2
-                    id="leadership-heading"
-                    class="mt-4 font-serif text-[clamp(2.35rem,3.8vw,3.75rem)] leading-[1.04] font-medium tracking-[-0.03em] text-brand-charcoal"
-                >
-                    Professional leadership, presented with clarity.
-                </h2>
-            </div>
-            <div class="border border-brand-border bg-white p-7 sm:p-9">
-                <p class="public-eyebrow">[TO CONFIRM]</p>
-                <p class="mt-4 text-base leading-7 text-brand-muted sm:text-lg">
-                    Leadership cards will be added after management approves
-                    current names, roles, professional designations,
-                    specialisations, biographies and portraits.
+        <div class="public-container">
+            <div
+                class="grid items-end gap-7 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16"
+            >
+                <div>
+                    <p class="public-eyebrow">Leadership</p>
+                    <h2
+                        id="leadership-heading"
+                        class="mt-4 font-serif text-[clamp(2.35rem,3.8vw,3.75rem)] leading-[1.04] font-medium tracking-[-0.03em] text-brand-charcoal"
+                    >
+                        Professional leadership, presented with clarity.
+                    </h2>
+                </div>
+                <p class="max-w-2xl text-base leading-7 text-brand-muted">
+                    Foremost is led by two Principal Partners and one Associate
+                    Partner whose combined capabilities span assurance,
+                    accounting, taxation, advisory and special engagements.
                 </p>
+            </div>
+
+            <div class="mt-11 grid gap-6 lg:grid-cols-3">
+                <article
+                    v-for="leader in leaders"
+                    :key="leader.name"
+                    class="group overflow-hidden border border-brand-border bg-white"
+                >
+                    <div
+                        class="relative aspect-[4/5] overflow-hidden bg-[var(--brand-warm-grey)]"
+                    >
+                        <img
+                            :src="leader.image.src"
+                            :alt="`Portrait of ${leader.name}`"
+                            :width="leader.image.width"
+                            :height="leader.image.height"
+                            loading="lazy"
+                            class="size-full object-cover object-top transition-transform duration-500 motion-reduce:transition-none lg:group-hover:scale-[1.025]"
+                        />
+                        <span
+                            class="absolute right-0 bottom-0 bg-brand-forest px-4 py-2 text-xs font-bold tracking-[0.1em] text-white uppercase"
+                        >
+                            {{ leader.role }}
+                        </span>
+                    </div>
+                    <div class="p-6 sm:p-7">
+                        <h3
+                            class="font-serif text-[1.65rem] leading-tight font-medium text-brand-charcoal"
+                        >
+                            {{ leader.name }}
+                        </h3>
+                        <p
+                            class="mt-2 text-xs font-bold tracking-[0.1em] text-brand-burgundy uppercase"
+                        >
+                            {{ leader.designations }}
+                        </p>
+                        <div class="mt-5 border-l-2 border-brand-gold pl-4">
+                            <p
+                                class="text-xs font-bold tracking-[0.1em] text-[var(--brand-gold-text)] uppercase"
+                            >
+                                Primary Specialisation
+                            </p>
+                            <p
+                                class="mt-2 text-sm leading-6 font-semibold text-brand-charcoal"
+                            >
+                                {{ leader.specialisation }}
+                            </p>
+                        </div>
+                        <p class="mt-5 text-sm leading-7 text-brand-muted">
+                            {{ leader.biography }}
+                        </p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
