@@ -1,9 +1,38 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"  @class(['dark' => ($appearance ?? 'system') == 'dark'])>
     <head>
+        @php
+            $socialTitle = 'Foremost Consulting Associates';
+            $socialDescription = 'Professional audit, accounting, tax and advisory support for stronger organisations.';
+            $socialUrl = url()->current();
+            $socialImage = url('/brand/foremost-social-card.png?v=20260815');
+        @endphp
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#0b4d3b">
+        <meta name="description" content="{{ $socialDescription }}">
+
+        <link rel="canonical" href="{{ $socialUrl }}">
+
+        <meta property="og:locale" content="en_NG">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="{{ $socialTitle }}">
+        <meta property="og:title" content="{{ $socialTitle }}">
+        <meta property="og:description" content="{{ $socialDescription }}">
+        <meta property="og:url" content="{{ $socialUrl }}">
+        <meta property="og:image" content="{{ $socialImage }}">
+        <meta property="og:image:secure_url" content="{{ $socialImage }}">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Foremost Consulting Associates - professional insight for better business decisions">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $socialTitle }}">
+        <meta name="twitter:description" content="{{ $socialDescription }}">
+        <meta name="twitter:image" content="{{ $socialImage }}">
+        <meta name="twitter:image:alt" content="Foremost Consulting Associates - professional insight for better business decisions">
 
         {{-- Inline script to detect system dark mode preference and apply it immediately --}}
         <script>
